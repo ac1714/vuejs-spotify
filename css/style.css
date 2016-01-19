@@ -1,0 +1,133 @@
+body {
+	margin-top: 50px;
+	font-family: 'Open Sans';
+  	-webkit-user-select: none;
+     -moz-user-select: -moz-none;
+      -ms-user-select: none;
+          user-select: none;
+    background-color: #181818;
+    color: #fff;	
+}
+.playing-track {
+	background-color: #333333 !important;
+	color: #1db954;
+}
+.progress {
+	height: 7px;
+	margin-bottom: 0px;
+}
+.progress-bar-success {
+	background-color: #1db954;
+}
+.controller-icon {
+	font-size: 16px;
+	color: #8c8c8c;
+}
+.v-align-middle {
+	vertical-align: middle !important;
+}
+table:hover {
+	cursor: default;
+}
+tbody tr:hover {
+	background-color: #282828 !important;
+}
+table {
+	table-layout: fixed;
+	margin-top: 20px;
+}
+thead, .dataset-title {
+	color: #8c8c8c;
+}
+.table thead > tr > th { 
+	border-bottom: none; 
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    border-top: 1px solid #282828;
+}
+td {
+    display:table-cell;
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow: ellipsis;	
+}
+label, th {
+	font-weight: 600;
+}
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* typeahead styling */
+span.twitter-typeahead {
+	display: block !important;
+}
+.dataset-title {
+    padding-left: 10px;
+}
+.twitter-typeahead .tt-query,
+.twitter-typeahead .tt-hint {
+	margin-bottom: 0;
+}
+.tt-dataset .media {
+	margin-top: 0px;
+}
+.tt-menu {
+	min-width: 160px;
+	width: 100%;
+	margin-top: 2px;
+	padding: 0px 0;
+	background-color: #282828;
+	border: 0px;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: 4px;
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+	      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+	background-clip: padding-box;
+
+}
+.tt-cursor, .tt-suggestion:hover {
+	background-color: #4d4d4d !important;
+}
+.tt-highlight {
+	background-color: #4d4d4d;
+}
+.tt-suggestion {
+	display: block;
+	padding: 10px 10px;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-bottom: 2px;
+	background-color: #333333;
+}
+.tt-suggestion:last-of-type {
+	margin-bottom: 5px;
+}
+.tt-suggestion .media-heading {
+	font-weight: 600;
+}
+.tt-suggestion .artist-name {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+.tt-suggestion .media-body {
+	vertical-align: middle;
+}
+.tt-dataset hr {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.tt-dataset-artists {
+	margin-bottom: 15px;
+}
+.tt-suggestion.tt-is-under-cursor a {
+	color: #fff;
+}
+.tt-suggestion p {
+	margin: 0;
+}
