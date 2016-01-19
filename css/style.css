@@ -10,6 +10,7 @@ body {
 }
 .playing-track {
 	background-color: #333333 !important;
+	color: #1db954;
 }
 .progress {
 	height: 7px;

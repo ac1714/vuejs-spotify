@@ -28,6 +28,16 @@
 			currentTrack: {}
 		},
 
+		events: {
+			'playing-track': function(track) {
+				var self = this;
+				return track.addEventListener("ended", function() 
+			    {
+			    	return self.currentTrack = {};
+			   	});
+			}
+		},
+
 		methods: {
 
 			// redirect to spotify
@@ -145,6 +155,7 @@
 						spotify_link: obj.external_urls.spotify,
 						name: obj.name,
 						type: obj.type,
+						query: this.searchQuery,
 						id: obj.id,
 						thumbnail: obj.images[2] ? obj.images[2].url : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN49uz/fwAJTAPLQuEFBAAAAABJRU5ErkJggg=='
 					});
@@ -177,6 +188,7 @@
 						album: obj.album.name,
 						duration: this.millisToMinutesAndSeconds(obj.duration_ms),
 						type: obj.type,
+						query: this.searchQuery,
 						id: obj.id,
 						thumbnail: obj.album.images[2] ? obj.album.images[2].url : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN49uz/fwAJTAPLQuEFBAAAAABJRU5ErkJggg=='
 					});
@@ -229,6 +241,7 @@
 					tracks.push(response.data);
 					this.searchResults = this.transformTracks(tracks);
 
+					// doesnt work in mobile safari
 					return this.playTrack(this.searchResults[0]);
 				}, function (response) {
 					return this.handleAjaxError(response.data.error);
@@ -304,6 +317,7 @@
 					this.pauseTrack();
 					this.audioSource = track.getAudioSource();
 					this.currentTrack = track;
+					this.$emit('playing-track', this.audioSource);
 		
 					return this.audioSource.play();
 				}
@@ -311,6 +325,7 @@
 				// else just return the selected track
 				this.currentTrack = track;
 				this.audioSource = track.getAudioSource();
+				this.$emit('playing-track', this.audioSource);
 
 				return this.audioSource.play();
 			},
@@ -376,11 +391,9 @@
 			{
 				name: 'artists',
 				source: artists.ttAdapter(),
-				displayKey: function (artist) {
-					return artist.name;
-				},			
+				display: 'query',
 			    templates: {
-			    	header: '<h4 class="dataset-title">Artists</h4>',
+			    	header: '<h5 class="dataset-title">ARTISTS</h5>',
 			        suggestion: function (artist) {
 			            return '<div class="media">' +
 			            			'<div class="media-left">' +
@@ -396,11 +409,9 @@
 			{
 				name: 'tracks',
 				source: tracks.ttAdapter(),
-				displayKey: function (track) {
-					return track.artist + ' - ' + track.title;
-				},			
+				display: 'query',			
 			    templates: {
-			    	header: '<h4 class="dataset-title">Tracks</h4>',
+			    	header: '<h5 class="dataset-title">TRACKS</h5>',
 			        suggestion: function (track) {
 			            return '<div class="media">' +
 			            			'<div class="media-left">' +
