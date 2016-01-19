@@ -108,8 +108,9 @@
 				settings.data = {
 					q: query + '*',
 					type: 'artist,track',
+					market: 'SE',
 					// market: 'from_token',
-					limit: 10 // reminder: typeahead/bloodhound min length is 5 to render
+					limit: 5 // reminder: typeahead/bloodhound min length is 5 to render
 				}
 				return settings;				
 			},
@@ -193,8 +194,6 @@
 						thumbnail: obj.album.images[2] ? obj.album.images[2].url : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN49uz/fwAJTAPLQuEFBAAAAABJRU5ErkJggg=='
 					});
 				}
-
-				console.log(transformedTracks);
 
 				return this.sortByProperty(transformedTracks, 'popularity');
 			},
@@ -395,6 +394,7 @@
 				name: 'artists',
 				source: artists.ttAdapter(),
 				display: 'query',
+				limit: Infinity, // fix for bug https://github.com/twitter/typeahead.js/issues/1232
 			    templates: {
 			    	header: '<h5 class="dataset-title">ARTISTS</h5>',
 			        suggestion: function (artist) {
@@ -412,7 +412,8 @@
 			{
 				name: 'tracks',
 				source: tracks.ttAdapter(),
-				display: 'query',			
+				display: 'query',
+				limit: Infinity, // fix for bug https://github.com/twitter/typeahead.js/issues/1232
 			    templates: {
 			    	header: '<h5 class="dataset-title">TRACKS</h5>',
 			        suggestion: function (track) {
