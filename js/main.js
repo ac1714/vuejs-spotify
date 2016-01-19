@@ -241,7 +241,10 @@
 					tracks.push(response.data);
 					this.searchResults = this.transformTracks(tracks);
 
-					// doesnt work in mobile safari
+					if(typeof window.orientation !== 'undefined'){
+					    return this.searchResults;
+					}
+					
 					return this.playTrack(this.searchResults[0]);
 				}, function (response) {
 					return this.handleAjaxError(response.data.error);
