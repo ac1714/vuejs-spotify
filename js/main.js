@@ -430,6 +430,7 @@
 			});
 
 			typeahead.bind('typeahead:select', function(ev, suggestion) {
+				this.blur();
   				if (suggestion.type == 'artist') {
   					return self.getArtistTopTracksById(suggestion.id);
   				} else if (suggestion.type == 'track') {
