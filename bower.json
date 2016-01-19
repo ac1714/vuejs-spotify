@@ -1,7 +1,6 @@
 {
 	"name": "vuejs-spotify",
 	"dependencies": {
-		"typeahead.js": "0.11.1",
-		"font-awesome": "*"
+		"typeahead.js": "0.11.1"
 	}
 }
