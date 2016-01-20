@@ -106,7 +106,7 @@
 				// 	'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('auth')).access_token
 				// }
 				settings.data = {
-					q: query + ' *',
+					q: query,
 					type: 'artist,track',
 					market: 'SE',
 					// market: 'from_token',
